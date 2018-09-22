@@ -25,3 +25,10 @@ Build from source
 This will build the source and populate the build folder with the necessary libraries.
 All the files you need can be found in the build folder, that will form the base folder of your project.
 You will need to use a local development server to be able to use all the features in some browsers.
+
+
+Credits
+=======
+
+  1. P5js: https://p5js.org/
+  2. ccapture.js: https://github.com/spite/ccapture.js/
