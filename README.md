@@ -22,5 +22,5 @@ Build from source
   4. npm run Build
 
 This will build the source and populate the build folder with the necessary libraries.
-You will need to run a local development server to be able to use all the features
-in some browsers.
+All the files you need can be found in the build folder, that will form the base folder of your project.
+You will need to use a local development server to be able to use all the features in some browsers.
