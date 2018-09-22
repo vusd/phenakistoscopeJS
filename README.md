@@ -8,7 +8,7 @@ For information on how to get started visit: VIDEO URL GOES HERE
 Installation
 =======
 
-  1. Download a built version of PhenakistoscopeJS from : BUILD URL HERE
+  1. Download a built version of PhenakistoscopeJS from: https://github.com/CreativeCodingProjects/phenakistoscopeJS/releases/latest
   2. if you don't already have a text editor get one (I recommend Atom as that is what I use in the videos)
   3. install a development server such as atom-live-server
   4. Watch the tutorial videos at: PLAYLIST URL GOES HERE
