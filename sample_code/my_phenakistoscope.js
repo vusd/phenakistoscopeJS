@@ -4,7 +4,7 @@ function setup_pScope(pScope){
   pScope.draw_layer_boundaries(false);
   pScope.draw_slits(true);
   pScope.set_direction(CCW);
-  pScope.set_slice_count(20);
+  pScope.set_slice_count(10);
 }
 
 function setup_layers(pScope){
