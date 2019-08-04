@@ -1,12 +1,11 @@
 {
   "name": "phenakistoscopeJS",
   "version": "1.0.0",
-  "description": "A small framework built on top of p5js for automating the process of making phenakistoscopes with javascript.
-  This framework is a part of the \"Creative Coding projects\" youtube channel.",
+  "description": "A small framework built on top of p5js for automating the process of making phenakistoscopes with javascript. This framework is a part of the \"Creative Coding projects\" youtube channel.",
   "homepage": "https://www.youtube.com/channel/UCQJBw4IgWV9Tp3CNgT5YtwA",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/CreativeCodingProjects/phenakistoscopeJS.git"
+    "type": "git",
+    "url": "https://github.com/vusd/phenakistoscopeJS.git"
   },
   "main": "index.js",
   "keywords": [
@@ -34,13 +33,13 @@
     "prepare": "webpack --mode=production",
     "copy_p5": "cpx ./node_modules/p5/lib/p5.min.js ./build/libraries/",
     "copy_ccapture": "cpx ./node_modules/ccapture.js/build/CCapture.all.min.js ./build/libraries/ && cpx ./node_modules/ccapture.js/src/gif.worker.js ./build/libraries/",
-    "copy_sample_code": "cpx ./sample_code/index.html ./build/ && cpx ./sample_code/my_phenakistoscope.js ./build/",
+    "copy_sample_code": "cpx './sample_code/*.{html,js,txt}' ./build/",
     "create_assets_folder": "mkdirp ./build/assets"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "babel-preset-env": "^1.7.0",
     "ccapture.js": "^1.1.0",
-    "p5": "^0.7.2"
+    "p5": "^0.8.0"
   }
 }

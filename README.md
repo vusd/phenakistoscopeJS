@@ -20,7 +20,7 @@ Build from source
   1. clone the repo or download the zip
   2. install npm if you don't already have it
   3. npm install
-  4. npm run Build
+  4. npm run build
 
 This will build the source and populate the build folder with the necessary libraries.
 All the files you need can be found in the build folder, that will form the base folder of your project.
