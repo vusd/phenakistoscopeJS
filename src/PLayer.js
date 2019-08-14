@@ -3,9 +3,19 @@ import {animate_ring} from "./PAnimationFunctions.js"
 
 export default class PLayer{
 
-  constructor(i_draw_function, i_background_function){
+  constructor(i_draw_function, background){
     this._draw_function       = i_draw_function.bind(this);
-    this._background_function = i_background_function.bind(this);
+
+    let background_t = typeof background
+
+    if(background_t === "function")
+      this._background_function = background.bind(this);
+    else if(background_t === "object"){
+      this._background_function = () => this.fill_background(background)
+    } else
+      this._background_function = () => {}
+
+
     this._animation_function = animate_ring(globals.phenakistoscope).bind(this);
     this._do_draw_boundaries = true;
     this.set_boundary(0,1000);
@@ -59,9 +69,9 @@ export default class PLayer{
     return this._animation_variables;
   }
 
-  fill_background(fill_color){
-      fill(fill_color);
-      stroke(fill_color);
+  fill_background(...args){
+      fill(...args);
+      stroke(...args);
       this.draw_wedge();
   }
 

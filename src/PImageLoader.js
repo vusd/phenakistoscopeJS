@@ -16,7 +16,8 @@ export default class PImageLoader{
 
   load_image_sequence(name, file_type, sequence_length){
     this._total_images_to_load += sequence_length;
-    for(var i = 0; i < image_count; ++i){
+    this._image_sequences[name] = []
+    for(var i = 0; i < sequence_length; ++i){
       this._image_sequences[name][i] = loadImage("assets/"+name+"/"+name+"_"+i+"."+file_type, this.image_loaded.bind(this));
     }
   }
@@ -26,7 +27,8 @@ export default class PImageLoader{
   }
 
   draw_image_from_sequence(name, frame_lerp, ctx, x, y){
-    let frame = math.floor(frame_lerp*this._image_sequences[name].length);
+    let imgs = this._image_sequences[name].length
+    let frame = Math.floor(frame_lerp*imgs)%imgs
     ctx.image(this._image_sequences[name][frame], x, y);
   }
 
