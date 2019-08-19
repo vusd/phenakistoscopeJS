@@ -11,16 +11,16 @@ function setup_layers(pScope){
   //lets us draw the whole circle background, ignoring the boundaries
   new PLayer(null, 220);
 
-  var layer1 = new PLayer(animate1);
+  var layer1 = new PLayer(flowers);
   layer1.mode( SWIRL(5) );
   layer1.set_boundary( 200, 1000 );
 
-  var layer2 = new PLayer(animate2, background2);
+  var layer2 = new PLayer(squares, radarBackground);
   layer2.mode( RING );
   layer2.set_boundary( 0, 400 );
 }
 
-function animate1(x, y, animation, pScope){
+function flowers(x, y, animation, pScope){
   translate(0, 0);
   scale(animation.frame*2);
   for (var i = 0; i < 12; i++) {
@@ -29,11 +29,11 @@ function animate1(x, y, animation, pScope){
   ellipse(0,0,5,5);
 }
 
-function background2(animation, pScope){
+function radarBackground(animation, pScope){
   pScope.fill_background(200, 0, 0, 50*animation.frame)
 }
 
-function animate2(x, y, animation, pScope){
+function squares(x, y, animation, pScope){
   translate(0, 0);
   rect(-10,-300-animation.wave()*50,20,20);
 }
