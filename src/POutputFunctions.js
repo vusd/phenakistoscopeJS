@@ -123,12 +123,10 @@ function set_initial_transforms(pScope){
 }
 
 function draw_wedge(pScope, layer, wedge_number){
-
   push();
     layer.animation_function(wedge_number, layer.boundary.low, layer.boundary.high);
   pop();
   layer.draw_boundry();
-
 }
 
 function draw_disk(pScope, layer){

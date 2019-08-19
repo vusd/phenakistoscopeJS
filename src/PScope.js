@@ -134,8 +134,8 @@ export default class PScope{
     this._draw_slits = do_draw;
   }
 
-  fill_background(fill_color){
-    this._layers[this._current_layer].fill_background(fill_color);
+  fill_background(...color){
+    this._layers[this._current_layer].fill_background(...color);
   }
 
   set print(do_print){

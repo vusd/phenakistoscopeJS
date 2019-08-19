@@ -3,15 +3,15 @@ import {animate_ring} from "./PAnimationFunctions.js"
 
 export default class PLayer{
 
-  constructor(i_draw_function, background){
+  constructor(i_draw_function, ...background){
     this._draw_function       = i_draw_function.bind(this);
 
-    let background_t = typeof background
+    let background_t = typeof background[0]
 
     if(background_t === "function")
-      this._background_function = background.bind(this);
+      this._background_function = background[0].bind(this);
     else if(background_t === "object"){
-      this._background_function = () => this.fill_background(background)
+      this._background_function = () => this.fill_background.call(this,...background)
     } else
       this._background_function = () => {}
 
@@ -70,9 +70,11 @@ export default class PLayer{
   }
 
   fill_background(...args){
+      push()
       fill(...args);
       stroke(...args);
       this.draw_wedge();
+      pop()
   }
 
   draw_boundry(){
