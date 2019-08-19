@@ -1,11 +1,24 @@
 import globals from "./PGlobals.js"
 import {animate_ring} from "./PAnimationFunctions.js"
 
+function blank (){}
+
 export default class PLayer{
 
-  constructor(i_draw_function, i_background_function){
-    this._draw_function       = i_draw_function.bind(this);
-    this._background_function = i_background_function.bind(this);
+  constructor(i_draw_function, ...background){
+    i_draw_function = i_draw_function || blank
+    this._draw_function = i_draw_function.bind(this);
+
+    let background_t = typeof background[0]
+
+    if(background_t === "function")
+      this._background_function = background[0].bind(this);
+    else if(background_t !== "undefined"){
+      this._background_function = () => this.fill_background.call(this,...background)
+    } else
+      this._background_function = () => {}
+
+
     this._animation_function = animate_ring(globals.phenakistoscope).bind(this);
     this._do_draw_boundaries = true;
     this.set_boundary(0,1000);
@@ -59,10 +72,12 @@ export default class PLayer{
     return this._animation_variables;
   }
 
-  fill_background(fill_color){
-      fill(fill_color);
-      stroke(fill_color);
+  fill_background(...args){
+      push()
+      fill(...args);
+      stroke(...args);
       this.draw_wedge();
+      pop()
   }
 
   draw_boundry(){

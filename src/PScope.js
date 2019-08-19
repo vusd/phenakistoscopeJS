@@ -134,8 +134,8 @@ export default class PScope{
     this._draw_slits = do_draw;
   }
 
-  fill_background(fill_color){
-    this._layers[this._current_layer].fill_background(fill_color);
+  fill_background(...color){
+    this._layers[this._current_layer].fill_background(...color);
   }
 
   set print(do_print){
@@ -197,11 +197,12 @@ export default class PScope{
   load_image_sequence(name, file_type, sequence_length){
     this._image_loader.load_image_sequence(name, file_type, sequence_length);
   }
+
   draw_image(name, x, y){
-    this._image_loader.draw_image(name, globals.p5js_default_gfx, x, y);
+    this._image_loader.draw_image(name, globals.p5, x, y);
   }
-  draw_image_from_sequence(name, ctx, x, y){
-    this._image_loader.draw_image_from_sequence(name, this.frame, globals.p5js_default_gfx, x, y);
+  draw_image_from_sequence(name, x, y, lerp){
+    this._image_loader.draw_image_from_sequence(name, lerp, globals.p5, x, y);
   }
   //-----------------------------------------------------------
 
