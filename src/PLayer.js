@@ -10,7 +10,7 @@ export default class PLayer{
 
     if(background_t === "function")
       this._background_function = background[0].bind(this);
-    else if(background_t === "object"){
+    else if(background_t !== "undefined"){
       this._background_function = () => this.fill_background.call(this,...background)
     } else
       this._background_function = () => {}
