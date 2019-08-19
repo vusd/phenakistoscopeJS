@@ -8,18 +8,16 @@ function setup_pScope(pScope){
 }
 
 function setup_layers(pScope){
-  var layer1 = new PLayer(animate1, background1);
+  //lets us draw the whole circle background, ignoring the boundaries
+  new PLayer(null, 220);
+
+  var layer1 = new PLayer(animate1);
   layer1.mode( SWIRL(5) );
-  layer1.set_boundary( 400, 1000 );
+  layer1.set_boundary( 200, 1000 );
 
   var layer2 = new PLayer(animate2, background2);
   layer2.mode( RING );
   layer2.set_boundary( 0, 400 );
-}
-
-
-
-function background1(animation, pScope){
 }
 
 function animate1(x, y, animation, pScope){
@@ -31,8 +29,8 @@ function animate1(x, y, animation, pScope){
   ellipse(0,0,5,5);
 }
 
-
 function background2(animation, pScope){
+  pScope.fill_background(200, 0, 0, 50*animation.frame)
 }
 
 function animate2(x, y, animation, pScope){

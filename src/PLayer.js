@@ -1,10 +1,13 @@
 import globals from "./PGlobals.js"
 import {animate_ring} from "./PAnimationFunctions.js"
 
+function blank (){}
+
 export default class PLayer{
 
   constructor(i_draw_function, ...background){
-    this._draw_function       = i_draw_function.bind(this);
+    i_draw_function = i_draw_function || blank
+    this._draw_function = i_draw_function.bind(this);
 
     let background_t = typeof background[0]
 
